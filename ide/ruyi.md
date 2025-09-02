@@ -93,3 +93,120 @@ XDG 规范标准目录：
 
     ```
 
+### 与ruyi交互获取数据
+
+参考ruyi文档：https://github.com/ruyisdk/ruyi/blob/main/docs/programmatic-usage.md
+
+
+### ruyi XDG规范设计下的默认路径
+
+
+```
+
+# ruyi的本地文件遵循 XDG 规范，以ubuntu为例，本地文件有：
+
+# 1.安装路径：用户指定，没有一定的要求，但是推荐的有
+/usr/local/bin  	# 这个路径在Ubuntu中需要sudo权限，不推荐
+~/.local/bin/ruyi  	# 需要配置环境变量
+
+# 2.配置文件存放路径
+~/.config/ruyi
+└── config.toml
+
+# 3.缓存
+~/.cache/ruyi
+├── distfiles        	# 缓存的从软件源直接下载的软件包的压缩包，一般是zst等压缩包格式；
+├── packages-index   	# 软件源索引仓库，里面存放的是软件包的元数据信息，让ruyi知道从哪里下载软件包，以及软件包的描述信息
+└── progcache        	# 安装过的历史版本的 ruyi 工具的二进制
+
+# 4.包安装路径：安装时会提示，一般在如下路径
+~/.local/share/ruyi/binaries/
+比如：~/.local/share/ruyi/binaries/x86_64/gnu-upstream-0.20250401.0
+
+# 5.状态
+~/.local/state/ruyi
+├── news.read.txt		# 记录已读的news信息
+├── ruyipkg
+│   └── installs.json		# 记录已经安装到本地的包
+└── telemetry
+    ├── installation.json	# ruyi启用遥测功能，会上传安装信息
+    ├── .stamp-last-upload	# 记录最后一次上传的时间（文件没有内容，但是上传完了文件会被更新，直观上文件最后更新时间变化）
+    ├── raw
+    ├── repos
+    ├── staged
+    └── uploaded
+```
+
+举例：
+
+config.toml : 
+
+```
+[repo]
+local = ""
+branch = "main"
+remote = "https://mirror.iscas.ac.cn/git/ruyisdk/packages-index.git"
+
+
+[telemetry]
+mode = "on"
+upload_consent = 2025-08-12T10:31:43.931087+08:00
+
+```
+
+
+```
+~/.cache/ruyi
+├── distfiles
+│   ├── gnu-milkv-milkv-duo-musl-bin.67688c7335e7.tar.zst
+│   └── openEuler-23.03-V1-xfce-d1-preview.img.zst
+├── packages-index
+│   ├── config.toml
+│   ├── CONTRIBUTING.md
+│   ├── CONTRIBUTING.zh.md
+│   ├── entities
+│   ├── LICENSE-Apache.txt
+│   ├── manifests
+│   ├── messages.toml
+│   ├── news
+│   ├── plugins
+│   ├── provisioner
+│   └── README.md
+└── progcache
+    ├── 0.35.0
+    ├── 0.36.0
+    ├── 0.37.1
+    └── 0.38.1
+
+```
+
+```
+
+~/.local/state/ruyi
+├── news.read.txt
+├── ruyipkg
+│   └── installs.json
+└── telemetry
+    ├── installation.json
+    ├── raw
+    │   ├── run.202509021036.7a5d0344007f42869eab7cf91953ca42.ndjson
+    │   ├── run.202509021036.bdf5c3efdd6c40b7bdc2541a8f88c309.ndjson
+    │   ├── run.202509021036.c2711149cb8443639a6ee3daf75813d6.ndjson
+    │   └── run.202509021037.de0ee7a77379478cba9a26ac1e667e79.ndjson
+    ├── repos
+    │   └── ruyisdk
+    │       ├── raw
+    │       └── staged
+    ├── staged
+    │   └── staged.3d8aa9e5ad0a4fafb01ec0830216870d.json
+    └── uploaded
+        ├── staged.0cf58c478f7f467cb33f76f5888ef81b.json
+        ├── staged.2d0ad31851aa4040ac27e77d62862ee5.json
+        ├── staged.3c598047ee07401281d9a92152e471e5.json
+        ├── staged.8d2c1ffc550f4d57a2764f02ac074cee.json
+        ├── staged.958acf9706a34912b51c4105f80021f8.json
+        ├── staged.d07e8a1d15c842a19a81f7167ed2f12e.json
+        ├── staged.d67ba2594de34514ba8e4f950afb0bc6.json
+        └── staged.f7a6a19d5e5f4ba89fd6d9f62fb8e6f3.json
+
+```
