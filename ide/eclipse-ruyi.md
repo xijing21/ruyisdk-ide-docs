@@ -47,34 +47,6 @@
 
 1. 执行：`ruyi telemetry upload`上传遥测数据；
 
----
-
-java实现:
-
-1. 初始检测：
-   1.1 是否安装ruyi：执行ruyi -V看是否有返回值；或者在path路径下搜索遍历ruyi；
-   1.2 本地执行 `ruyi -V`版本信息
-   1.3 网上软件源中最新ruyi版本信息：从 Constants.NetAddress.MIRROR_RUYI_RELEASES 的路径下，遍历所有目录名，版本为A.B，A最大的为当前最高版本，A相同的B最大为最高版本；
-
-IDE启动时，检验系统是否安装ruyi，如果没有安装ruyi：弹出dialog窗口：提示用户开始安装ruyi，默认安装路径为"~/.local/bin/"，并给与修改路径的选项，可供用户修改默认安装路径。
-用户确定后，将上面的默认安装路径赋值到Constants类的Ruyi 类的 DEFAULT_PATH ；用于保存用户设置；
-
-执行安装：
-
-1. 从 Constants.Ruyi.DEFAULT_PATH 获取路径ruyi的安装路径。默认是"~/.local/bin/"
-2. 从 Constants.NetAddress.MIRROR_RUYI_RELEASES 的路径下获取最新的安装安装版本（0.XX），下载与系统架构匹配的安装程序到1中的路径下。如ruyi.amd64;
-3. 修改ruyi.amd64为ruyi；
-4. 为ruyi赋予可执行权限；
-5. 执行 ruyi -V检验安装是否成功。
-   ```
-      String lastestVersion = "0.32.0";
-      String archSuffix = SystemInfo.detectArchitecture().getSuffix();  //"amd64";
-      String lastestFileName = "ruyi."+archSuffix;
-
-      //ruyiDownloadUrl = "https://mirror.iscas.ac.cn/ruyisdk/ruyi/releases/0.32.0/ruyi.amd64"
-      String ruyiDownloadUrl = Constants.NetAddress.MIRROR_RUYI_RELEASES + "/"+lastestVersion+"/"+lastestFileName;
-      String ruyiInstallPath = Paths.get(installPath, lastestFileName).toString();
-   ```
 
 ---
 
