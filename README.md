@@ -25,6 +25,9 @@
   - 仓库：https://github.com/ruyisdk/ruyisdk-vscode-extension
   - 代码规范要求：待补充
 - 设计文档：[pdf](./ide/vscode/RISC-V%20VSCode%20插件设计书（修改版）.pdf)
+- 发布方式：
+  - 上架vscode 插件市场：https://marketplace.visualstudio.com
+  - 在 ruyisdk镜像站 和 github仓库release 提供扩展包
 
 ### Eclipse 插件
 
@@ -37,6 +40,12 @@
 - 设计文档：
 
   - [eclipse-ruyi-plugins](./ide/eclipse/eclipse-ruyi.md) 功能构想
+
+- 发布方式：
+  - 方式一：将插件打包到IDE中，提供一体化的IDE工具。（适合新用户初装）
+  - 方式二：单独提供插件安装和更新（适合插件单独安装/更新场景）
+    - 在 Eclipse marketplace 发布（推荐）
+    - 在 ruyisdk镜像站 和 github仓库release 提供jar或者zip包
 
 ## 开发必备
 
