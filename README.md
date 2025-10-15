@@ -1,7 +1,7 @@
 # ruyisdk-ide-docs
 
 - [项目目标](./intro/vision.md)
-- [总览](./intro/overview.md)
+- [项目组成总览](./intro/overview.md)
 - [基础研发模块](./other/module.md)
 
 ## IDE
@@ -30,9 +30,8 @@
 
 - 资源简介：
   基于eclipse embeded cdt 定制IDE（ruyisdk ide）包括两个部分：一个是打包工程和一个插件仓库：
-
-  1. 打包工程仓库：https://github.com/ruyisdk/ruyisdk-eclipse-packages/
-  2. 插件仓库：https://github.com/ruyisdk/ruyisdk-eclipse-plugins/
+  - 打包工程仓库：https://github.com/ruyisdk/ruyisdk-eclipse-packages/
+  - 插件仓库：https://github.com/ruyisdk/ruyisdk-eclipse-plugins/ 
 
   - 代码规范：https://github.com/ruyisdk/ruyisdk-eclipse-plugins/blob/main/docs/developer/CONTRIBUTING.md
 - 设计文档：
@@ -44,12 +43,15 @@
 - 开发启动四件事: **添加许可证**、**DCO**、代码规范、自动化构建
 - 相关的代码仓库PR，需要有**两名**以上的员工同意合入 (常见回复：LGTM（Looks Good To Me），即同意合入）
 - **开源社区 Commits & Git 使用必读**：
+
   - https://www.conventionalcommits.org
   - https://git-scm.com/docs/git-interpret-trailers
   - Commits 统一使用英文
 - PR（pull request）：
+
   - 一个pr尽量一个commit；多个commit请合并（ 搜索 git rebase -i 和 squash 关键字了解学习）；
   - 一个pr尽量只做一件事，方便 reviewer 快速审核，避免很多目的的修改掺和一起，增加代码审核难度；
   - pr标题建议英语，简明且尽量说明为什么做了什么，描述详细说明下修改详细信息（如背景原因，主要修改思路/内容，修改后的运行效果截图等），方便 reviewer 理解并快速审核；
 
   > 语言要求：commit log 强制要求英语；pr标题建议使用英语；pr描述和评论等不做限制；issue不做语言限制；
+  >
