@@ -45,7 +45,7 @@
   - 方式一：将插件打包到IDE中，提供一体化的IDE工具。（适合新用户初装）
   - 方式二：单独提供插件安装和更新（适合插件单独安装/更新场景）
     - 在 Eclipse marketplace 发布（推荐）
-    - 在 ruyisdk镜像站 和 github仓库release 提供jar或者zip包
+    - 在 ruyisdk 镜像站 和 github仓库release 提供jar或者zip包
 
 ## 开发必备
 
@@ -55,12 +55,12 @@
 
   - https://www.conventionalcommits.org
   - https://git-scm.com/docs/git-interpret-trailers
-  - Commits 统一使用英文
+  - **Commits 统一使用英文**
+
 - PR（pull request）：
+  - 创建PR：PR 标题强烈建议英语，简明且尽量说明为什么做了什么，描述详细说明下修改详细信息（不限于如背景原因，主要修改思路/内容，修改后的运行效果截图等），方便 reviewer 理解并快速审核；
+  - PR颗粒度：合理规划 PR 颗粒度，以方便 maintainer/reviewer 审核便捷为目的，建议“一个PR只做一件事”，尽量避免多个目的/事项混在一起增加沟通成本和代码审核难度。
+  - PR commit数量：开发前与仓库 maintainer/reviewer 沟通达成一致（是否要求多个commit合并）；
 
-  - 一个pr尽量一个commit；多个commit请合并（ 搜索 git rebase -i 和 squash 关键字了解学习）；
-  - 一个pr尽量只做一件事，方便 reviewer 快速审核，避免很多目的的修改掺和一起，增加代码审核难度；
-  - pr标题建议英语，简明且尽量说明为什么做了什么，描述详细说明下修改详细信息（如背景原因，主要修改思路/内容，修改后的运行效果截图等），方便 reviewer 理解并快速审核；
-
-  > 语言要求：commit log 强制要求英语；pr标题建议使用英语；pr描述和评论等不做限制；issue不做语言限制；
-  >
+- 语言要求：**commit log 强制要求英语**；PR标题**强烈建议**使用英语；其他鼓励使用英语但不严格限制（如PR描述、评论；issue标题、描述、评论等）；
+  > “Commit 信息强制英文是为了保证代码历史对全球开发者永久可读；PR 标题建议英文是为了方便维护者快速管理。我们理解语言的多样性，因此 PR 和 Issue 的讨论不限制语言，以鼓励更深入的交流。”
